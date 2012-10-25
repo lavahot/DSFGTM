@@ -1,5 +1,3 @@
-<<<<<<< HEAD
 This is Frank's hit.txt
-=======
 This is some text. Hi Frank!
->>>>>>> Test commit and sync
+
