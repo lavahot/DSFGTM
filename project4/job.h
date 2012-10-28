@@ -1,5 +1,7 @@
-#IFNDEF JOB
-#DEFINE JOB
+#ifndef JOB
+#define JOB
+enum proType {IO, CPU};
+
 class Job
 {
 	private:
@@ -8,10 +10,9 @@ class Job
 		int processTime;
 		int waitTime;
 		int cpuQueueTime;
-		enum proType (IO, CPU);
 		proType prot;
 	public:
-		Job(double spawn, int idNew, int proTime, int type);
+		Job(double spawn, int idNew, int proTime, proType type);
 		~Job();
 		int getType();
 		void endWaitq(int qtime);
@@ -19,7 +20,7 @@ class Job
 		bool process();
 };
 
-	Job::Job(double spawn, int idNew, int proTime, int type)
+	Job::Job(double spawn, int idNew, int proTime, proType type)
 	{
 		spawntime=spawn;
 		id=idNew;
@@ -53,4 +54,4 @@ class Job
 			else
 				return true;
 		}
-#ENDIF
+#endif

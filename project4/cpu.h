@@ -1,19 +1,19 @@
-#IFNDEF CPU
-#DEFINE CPU
+#ifndef CPU
+#define CPU
 
-#IFNDEF JOB
+#ifndef JOB
 //#DEFINE JOB
 #include "job.h"
-#ENDIF
+#endif
 
-#IFNDEF QUE_LIST_H
+#ifndef QUE_LIST_H
 //#DEFINE QUE_LIST_H
 #include "que_list.h"
-#ENDIF
+#endif
 
-#IFNDEF STATMODULE
+#ifndef STATMODULE
 #include "StatModule.h"
-#ENDIF
+#endif
 
 class CPU
 {
@@ -60,7 +60,7 @@ class CPU
 				else
 				{
 					jobTmp.endCPUq(ctime);
-					//report to stat module;
+					statM->reportJobEnd(jobTmp);
 					
 					delete jobTmp;
 				}
