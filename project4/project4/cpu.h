@@ -1,19 +1,10 @@
 #ifndef CPU_H
 #define CPU_H
 
-//ifndef JOB
-//#DEFINE JOB
 #include "job.h"
-//#endif
-
-//#ifndef QUE_LIST_H
-//#DEFINE QUE_LIST_H
 #include "que_list.h"
-//#endif
-
-//#ifndef STATMODULE
 #include "StatModule.h"
-//#endif
+
 
 class CPU
 {
@@ -59,7 +50,15 @@ class CPU
 			{
 				jobQue->Dequeue(jobTmp);
 				if(jobTmp->process())
-					jobQue->Enqueue(jobTmp);
+				{
+                    jobQue->Enqueue(jobTmp);
+                    if(jobTmp->getType())
+                        //is CPU type
+                        idletime-=0.2;
+                    else
+                        //is IO type
+                        idletime-=0.1;
+                }
 				else
 				{
 					jobTmp->endCPUq(ctime);
@@ -68,7 +67,6 @@ class CPU
 					delete jobTmp;
 				}
 			}
-			
 		}
 		return idletime;
 		
