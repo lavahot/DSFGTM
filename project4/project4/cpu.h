@@ -29,7 +29,8 @@ class CPU
 		idletime=0.0;
 	}
 	CPU::CPU(int newID, StatModule *stat)
-	{
+	{//use this constructor for our purposes.
+        jobQue= new QueList<Job*> (5);
 		statM=stat;
 		ID=newID;
 		idletime=0.0;

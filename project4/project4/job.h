@@ -1,22 +1,26 @@
 #ifndef JOB_H
 #define JOB_H
 
+enum proType {IO, CPU};
 
 class Job
 {
-    public:
-        enum proType {IO, CPU};
 	private:
 		double spawntime;
-		int id;
-		int processTime;
-		int waitTime;
-		int cpuQueueTime;
-		proType prot;
+		int ID;
+		int processTime;          //total process time assigned to job
+        int processTimeRemaining; //process time remaining
+		int waitTime;             //total time in wait queue
+		int cpuQueueTime;         //total time in cpu queue
+        int cpuStartTime;         //timestamp of cpu queue entry
+		proType prot;             //type identifier
 	public:
 		Job(double spawn, int idNew, int proTime, proType type);
 		~Job();
-		int getType();
+		proType getType();
+        int getProcTime();
+        int getWait();
+        int getCPU();
 		void endWaitq(int qtime);
 		void endCPUq(int qtime);
 		bool process();
@@ -26,9 +30,12 @@ class Job
 	Job::Job(double spawn, int idNew, int proTime, proType type)
 	{
 		spawntime=spawn;
-		id=idNew;
+		ID=idNew;
 		processTime=proTime;
+        processTimeRemaining=processTime;
 		prot=type;
+        cpuQueueTime=0;
+        cpuStartTime=0;
 	}
 	Job::~Job()
 	{
@@ -36,25 +43,38 @@ class Job
 	void Job::endWaitq(int qtime)
 	{
 		waitTime=qtime-spawntime;
-		spawntime=0;
-	}
+        cpuStartTime=qtime;
+    }
 	void Job::endCPUq(int qtime)
 	{
-		cpuQueueTime=qtime-spawntime;
+		cpuQueueTime=qtime-cpuStartTime;
 	}
-	int Job::getType()
+	proType Job::getType()
 		{
 			return prot;
 		}
 	bool Job::process()
 		{//decrements process time counter, returns bool indicating whether there is time left
 			if(prot)
-				processTime-=2;//if CPU-bound, decrement 2
+				processTimeRemaining-=2;//if CPU-bound, decrement 2
 			else
-				processTime--;//if IO bound, decrement 1
-			if (!processTime)
+				processTimeRemaining--;//if IO bound, decrement 1
+			if (!processTimeRemaining)
 				return false;
 			else
 				return true;
 		}
+int Job::getProcTime()
+{
+    return processTime;
+}
+
+int Job::getWait()
+{
+    return waitTime;
+}
+int Job::getCPU()
+{
+    return cpuQueueTime;
+}
 #endif
