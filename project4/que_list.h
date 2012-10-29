@@ -66,7 +66,8 @@ template <typename T>
    d_qFront=NULL;
    d_qRear=NULL;
   }
-  
+
+template <typename T>
   QueList<T>::QueList(int maxsize)
   // Pre: None.
   // Post: List is empty.
@@ -75,6 +76,12 @@ template <typename T>
    d_qFront=NULL;
    d_qRear=NULL;
   }
+
+template <typename T>
+    int QueList<T>::GetLength() const
+{
+    return length;
+}
 
 template <typename T>
   QueList<T>::~QueList()

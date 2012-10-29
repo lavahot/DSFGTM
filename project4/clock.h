@@ -1,5 +1,5 @@
-#IFNDEF CLOCK
-#DEFINE CLOCK
+#ifndef CLOCK
+#define CLOCK
 class Clock
 {
 	private:
@@ -19,4 +19,4 @@ class Clock
 		}
 };
 
-#ENDIF
+#endif

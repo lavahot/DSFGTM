@@ -1,13 +1,13 @@
-#IFNDEF STATMODULE
-#DEFINE STATMODULE
-#IFNDEF JOB
+#ifndef STATMODULE
+#define STATMODULE
+#ifndef JOB
 //#DEFINE JOB
 #include "job.h"
-#ENDIF
+#endif
 
 #include <fstream>
 
-class StatModule()
+class StatModule
 {
 	private:
 		struct stats
@@ -16,7 +16,7 @@ class StatModule()
 			int avgCPUQ;
 			int numOfType;
 			
-		}
+		};
 		stats jobStatArry[2][4];
 		float CPUIdle[10];
 	public:
@@ -28,10 +28,12 @@ class StatModule()
 		void printStats();		
 };
 
-	StatModule::StatModule();
+	StatModule::StatModule()
 	{}
-	StatModule::~StatModule();
+	StatModule::~StatModule()
 	{}
-	StatModule::reportJobEnd(Job *job)
+	void StatModule::reportJobEnd(Job *job)
 	{
 	}
+
+#endif

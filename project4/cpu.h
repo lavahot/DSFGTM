@@ -1,24 +1,24 @@
-#ifndef CPU
-#define CPU
+#ifndef CPU_H
+#define CPU_H
 
-#ifndef JOB
+//ifndef JOB
 //#DEFINE JOB
 #include "job.h"
-#endif
+//#endif
 
-#ifndef QUE_LIST_H
+//#ifndef QUE_LIST_H
 //#DEFINE QUE_LIST_H
 #include "que_list.h"
-#endif
+//#endif
 
-#ifndef STATMODULE
+//#ifndef STATMODULE
 #include "StatModule.h"
-#endif
+//#endif
 
 class CPU
 {
 	private:
-		QueList<*Job> jobQue (5);
+		QueList<Job*> *jobQue;
 		float idletime;
 		float jobtime;
 		int queLength;
@@ -34,6 +34,7 @@ class CPU
 };
 	CPU::CPU()
 	{
+        jobQue= new QueList<Job*> (5);
 		idletime=0.0;
 	}
 	CPU::CPU(int newID, StatModule *stat)
@@ -44,22 +45,24 @@ class CPU
 	}
 	CPU::~CPU()
 	{
+        jobQue->MakeEmpty();
+        delete jobQue;
 	}
 	int CPU::process(int ctime)
 	{
 		jobtime=1;
 		Job *jobTmp;
-		if (!jobQue.isEmpty())
-		{
-			queLength=jobQue.GetLength();
+		if (!jobQue->IsEmpty())
+        {
+			queLength=jobQue->GetLength();
 			for(int i = 0; i<queLength; i++)
 			{
-				jobQue.Dequeue(jobTmp);
-				if(jobTmp.process())
-					jobQue.Enqueue(jobTmp);
+				jobQue->Dequeue(jobTmp);
+				if(jobTmp->process())
+					jobQue->Enqueue(jobTmp);
 				else
 				{
-					jobTmp.endCPUq(ctime);
+					jobTmp->endCPUq(ctime);
 					statM->reportJobEnd(jobTmp);
 					
 					delete jobTmp;
@@ -72,9 +75,9 @@ class CPU
 	}
 	bool CPU::enQ(Job *jobitem)
 	{ 
-		if (!jobQue.isFull())
+		if (!jobQue->IsFull())
 		{
-			jobQue.Enqueue(jobitem);
+			jobQue->Enqueue(jobitem);
 			return true;//job queue has room, item enqueued.
 		}
 		else
@@ -82,6 +85,6 @@ class CPU
 	}
 	bool CPU::IsFull()
 	{
-		return jobQue.IsFull();
+		return jobQue->IsFull();
 	}
-#ENDIF
+#endif
