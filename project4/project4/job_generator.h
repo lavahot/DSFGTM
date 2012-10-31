@@ -1,6 +1,9 @@
 /*
  Generates jobs for the simulation
 */
+
+#ifndef JOB_GENERATOR_H
+#define JOB_GENERATOR_H
 #include "discrete_generator.h"
 #include "job.h"
 
@@ -26,3 +29,4 @@ class JobGenerator
   // the (Job*)+1 on the pointer address
   // Also returns number of jobs generated
 };
+#endif
