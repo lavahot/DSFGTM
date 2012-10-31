@@ -1,4 +1,5 @@
-
+#ifndef JOB_GENERATOR_H
+#define JOB_GENERATOR_H
 /*
  Generates jobs for the simulation
 */

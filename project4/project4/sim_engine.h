@@ -21,6 +21,7 @@ class SimEngine
  Clock* clock;
  JobGenerator* job_gen;
  int num_jobs;
+ StatModule* stat;
  public:
   SimEngine(StatModule* stat_mod_, 
 	double p_jobs_per_cycle_distribution_[3],

@@ -32,31 +32,33 @@ class SimEngine
    job_gen = new JobGenerator( p_service_time_distribution_,p_job_id_distribution_,p_jobs_per_cycle_distribution_, stat_mod_);
    proc= new Processor(clock,stat_mod_);
    num_jobs = num_jobs_;
+      stat=stat_mod_;
   }
 
   void SimEngine::Sim()
   //Runs the simulation to completion
   {
    Job* job_p;
-
+      int num_jobstmp=0;
    //run simulation loop
-   for(int i=0; i<num_jobs; i++)
+   for(int i=0; i<num_jobs; )
    {
     //update clock
     clock->advTime();
 
     //get jobs
-    job_p = job_gen->gen_jobs_(num_jobs);
+    job_p = job_gen->gen_jobs_(num_jobstmp);
 
     //put jobs in processor
-    for(int j=0; j<num_jobs; j++ )
+    for(int j=0; j<num_jobstmp; j++ )
      proc->AddJob(job_p+j);
-
+       i+=num_jobstmp;
     //run processor
     proc->LoopCPUCycle();
 
     if( i%60==0 )
     {
+        stat->printStatus(clock->getTime());
     }
    }
   }
