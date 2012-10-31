@@ -1,3 +1,5 @@
+#ifndef JOBGENERATOR_H
+#define JOBGENERATOR_H
 /*
  Generates jobs for the simulation
 */
@@ -26,3 +28,4 @@ class JobGenerator
   // the (Job*)+1 on the pointer address
   // Also returns number of jobs generated
 };
+#endif

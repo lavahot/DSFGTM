@@ -7,6 +7,7 @@
  * author\ Frank Greenhalgh and Taylor Mansfield
  */
 #include "node.h"
+#include <cstdlib>
 
 template <typename T>
 class QueList

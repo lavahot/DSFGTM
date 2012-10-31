@@ -1,3 +1,5 @@
+#ifndef SIMENGINE_H
+#define SIMENGINE_H
 /*
  Responsibilities:
   Simulate CPU scheduling
@@ -31,3 +33,4 @@ class SimEngine
   ~SimEngine();
   //dealloc clock
 };
+#endif

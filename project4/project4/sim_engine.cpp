@@ -25,19 +25,18 @@ class SimEngine
 	double p_jobs_per_cycle_distribution_[3],
 	double p_service_time_distribution_[4],
 	double p_job_id_distribution_[2] ,
-	double total_time_)//alloc clock
+	int num_jobs_)//alloc clock
   //Distribute StatModule
   {
-   total_time = total_time_;
    clock=new Clock();
    job_gen = new JobGenerator( p_service_time_distribution_,p_job_id_distribution_,p_jobs_per_cycle_distribution_);
    proc= new Processor(clock,stat_mod_);
+   num_jobs = num_jobs_;
   }
 
   void SimEngine::Sim()
   //Runs the simulation to completion
   {
-   int num_jobs;
    Job* job_p;
 
    //run simulation loop
@@ -55,6 +54,10 @@ class SimEngine
 
     //run processor
     proc->LoopCPUCycle();
+
+    if( i%60==0 )
+    {
+    }
    }
   }
 
