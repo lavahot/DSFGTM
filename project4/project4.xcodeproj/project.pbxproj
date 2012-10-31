@@ -13,6 +13,9 @@
 		CE7F55A41640BAE300263EB1 /* job_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7F559B1640BAE300263EB1 /* job_generator.cpp */; };
 		CE7F55A51640BAE300263EB1 /* processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7F559D1640BAE300263EB1 /* processor.cpp */; };
 		CE7F55A61640BAE300263EB1 /* sim_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7F559F1640BAE300263EB1 /* sim_engine.cpp */; };
+		CE7F55AA1640D46B00263EB1 /* cpu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7F55A91640D46800263EB1 /* cpu.cpp */; };
+		CE7F55AC1640D4AC00263EB1 /* job.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7F55AB1640D4AC00263EB1 /* job.cpp */; };
+		CE7F55AE1640D50200263EB1 /* StatModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7F55AD1640D50100263EB1 /* StatModule.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +52,9 @@
 		CE7F55A11640BAE300263EB1 /* sorted_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sorted_vector.h; sourceTree = "<group>"; };
 		CE7F55A21640BAE300263EB1 /* unsorted_list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unsorted_list.h; sourceTree = "<group>"; };
 		CE7F55A81640BFDC00263EB1 /* discrete_generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = discrete_generator.h; sourceTree = "<group>"; };
+		CE7F55A91640D46800263EB1 /* cpu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cpu.cpp; sourceTree = "<group>"; };
+		CE7F55AB1640D4AC00263EB1 /* job.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = job.cpp; sourceTree = "<group>"; };
+		CE7F55AD1640D50100263EB1 /* StatModule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StatModule.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,9 +98,12 @@
 				CE7F55A11640BAE300263EB1 /* sorted_vector.h */,
 				CE7F55A21640BAE300263EB1 /* unsorted_list.h */,
 				CE7B84E4163E1B7300802AFC /* StatModule.h */,
+				CE7F55AD1640D50100263EB1 /* StatModule.cpp */,
 				CE7B84E5163E1B7300802AFC /* clock.h */,
 				CE7B84E6163E1B7300802AFC /* job.h */,
+				CE7F55AB1640D4AC00263EB1 /* job.cpp */,
 				CE7B84E7163E1B7300802AFC /* cpu.h */,
+				CE7F55A91640D46800263EB1 /* cpu.cpp */,
 				CE7B84E8163E1B7300802AFC /* que_list.h */,
 				CE7B84E9163E1B7300802AFC /* README.txt */,
 				CE7B84EA163E1B7300802AFC /* node.h */,
@@ -160,6 +169,9 @@
 				CE7F55A41640BAE300263EB1 /* job_generator.cpp in Sources */,
 				CE7F55A51640BAE300263EB1 /* processor.cpp in Sources */,
 				CE7F55A61640BAE300263EB1 /* sim_engine.cpp in Sources */,
+				CE7F55AA1640D46B00263EB1 /* cpu.cpp in Sources */,
+				CE7F55AC1640D4AC00263EB1 /* job.cpp in Sources */,
+				CE7F55AE1640D50200263EB1 /* StatModule.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +232,7 @@
 		CE7B84E2163E1B3500802AFC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -227,6 +240,7 @@
 		CE7B84E3163E1B3500802AFC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -10,7 +10,7 @@ class Job
 		int ID;
 		int processTime;          //total process time assigned to job
         int processTimeRemaining; //process time remaining
-		int waitTime;             //total time in wait queue
+		double waitTime;             //total time in wait queue
 		int cpuQueueTime;         //total time in cpu queue
         int cpuStartTime;         //timestamp of cpu queue entry
 		proType prot;             //type identifier
@@ -19,12 +19,13 @@ class Job
 		~Job();
 		proType getType();
         int getProcTime();
-        int getWait();
+        double getWait();
         int getCPU();
 		void endWaitq(int qtime);
 		void endCPUq(int qtime);
 		bool process();
   
 };
+
 
 #endif

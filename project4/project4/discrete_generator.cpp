@@ -24,7 +24,7 @@ on the Smirnov transform method.
   //Pre: Initialized. SIZE isn't too large.
   //Post: A random number of the distribution is generated
   {
-   double number = (std::rand()%10000000)/10000000.0;
+      double number = (rand()%10000000)/10000000.0;
    int i=-1;
    while(number>=cdf[++i]);
    return i;

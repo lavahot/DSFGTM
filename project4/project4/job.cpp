@@ -57,12 +57,13 @@
 			else
 				return true;
 		}
+
 int Job::getProcTime()
 {
     return processTime;
 }
 
-int Job::getWait()
+double Job::getWait()
 {
     return waitTime;
 }

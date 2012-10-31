@@ -1,8 +1,15 @@
-
 #include "StatModule.h"
 #include "job.h"
 #include <fstream>
 #include <iomanip>
+//
+//  StatModule.cpp
+//  project4
+//
+//  Created by Taylor Mansfield on 10/30/12.
+//  Copyright (c) 2012 Taylor Mansfield. All rights reserved.
+//
+
 
 StatModule::StatModule()
 {
@@ -176,4 +183,3 @@ void StatModule::printStatus(int ctime)
     
     
 }
-

@@ -7,11 +7,13 @@
 //
 
 #include <iostream>
-#include "sim_engine.h"
+#include <fstream>
 #include "StatModule.h"
+#include "sim_engine.h"
 
+using namespace std;
 
-int main(int argc, const char * argv[])
+int main()
 {
  StatModule *stat_mod = new StatModule();
  SimEngine sim_eng(stat_mod, 
@@ -21,5 +23,6 @@ int main(int argc, const char * argv[])
 	double total_time);
  sim_eng.Sim();
  stat_mod.printstats();
+    
 }
 
