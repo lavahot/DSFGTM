@@ -20,13 +20,13 @@ class SimEngine
  Processor* proc;
  Clock* clock;
  JobGenerator* job_gen;
- double total_time;
+ int num_jobs;
  public:
   SimEngine(StatModule* stat_mod_, 
 	double p_jobs_per_cycle_distribution_[3],
 	double p_service_time_distribution_[4],
 	double p_job_id_distribution_[2] ,
-	double total_time_);//alloc clock
+    int num_jobs_);//alloc clock
   //Distribute StatModule
   void Sim();
   //Runs the simulation to completion

@@ -18,7 +18,7 @@
 #include <cstdlib>
   JobGenerator::JobGenerator( double service_time_distribution_[4],
 	double id_distribution_[2],
-	double job_create_dist_[3] ):
+	double job_create_dist_[3], StatModule* statM ):
 	d_job_number(0)
   {
    d_ser_dist = new DiscreteGenerator(4,service_time_distribution_);
@@ -28,6 +28,7 @@
       d_service_times[1]=20;
       d_service_times[2]=30;
       d_service_times[3]=60;
+      stat=statM;
   }
 
   Job* JobGenerator::gen_jobs_( int& number_jobs_)
@@ -50,9 +51,10 @@
     {
      d_job_number++;//The first job shall get number 1
         job_ptr[i] = Job(d_job_number,d_id_dist->generateDist(), d_service_times[d_ser_dist->generateDist()], d_id_dist->generateDist() );
+        
     }
    }
-
+      
    return job_ptr;
   }
 

@@ -58,16 +58,26 @@
 				return true;
 		}
 
-int Job::getProcTime()
-{
-    return processTime;
-}
+    int Job::getProcTime()
+    {
+        return processTime;
+    }
 
-double Job::getWait()
-{
-    return waitTime;
-}
-int Job::getCPU()
-{
-    return cpuQueueTime;
-}
+    int Job::getStartTime()
+    {
+        return cpuStartTime;
+    }
+
+    double Job::getWait()
+    {
+        return waitTime;
+    }
+    int Job::getCPU()
+    {
+        return cpuQueueTime;
+    }
+
+    int Job::getID()
+    {
+        return ID;
+    }

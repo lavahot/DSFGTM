@@ -29,7 +29,7 @@ class SimEngine
   //Distribute StatModule
   {
    clock=new Clock();
-   job_gen = new JobGenerator( p_service_time_distribution_,p_job_id_distribution_,p_jobs_per_cycle_distribution_);
+   job_gen = new JobGenerator( p_service_time_distribution_,p_job_id_distribution_,p_jobs_per_cycle_distribution_, stat_mod_);
    proc= new Processor(clock,stat_mod_);
    num_jobs = num_jobs_;
   }
@@ -40,7 +40,7 @@ class SimEngine
    Job* job_p;
 
    //run simulation loop
-   for(int i=0; i<(int)total_time; i++)
+   for(int i=0; i<num_jobs; i++)
    {
     //update clock
     clock->advTime();

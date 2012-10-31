@@ -22,7 +22,7 @@ int main()
 	double p_job_id_distribution ,
 	double total_time);
  sim_eng.Sim();
- stat_mod.printstats();
+ stat_mod->printStats();
     
 }
 
