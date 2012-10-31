@@ -4,7 +4,6 @@ on the Smirnov transform method.
 */
 
 #include "discrete_generator.h"
-//#include <random>
 #include <cstdlib>
 
 

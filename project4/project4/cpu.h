@@ -23,4 +23,4 @@ class CPU
 		bool enQ(Job *jobitem);
 		bool IsFull();
 };
-	#endif
+#endif

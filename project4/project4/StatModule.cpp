@@ -1,3 +1,7 @@
+#include "StatModule.h"
+#include "job.h"
+#include <fstream>
+#include <iomanip>
 //
 //  StatModule.cpp
 //  project4
@@ -6,7 +10,6 @@
 //  Copyright (c) 2012 Taylor Mansfield. All rights reserved.
 //
 
-#include "StatModule.h"
 
 StatModule::StatModule()
 {
@@ -84,7 +87,6 @@ void StatModule::reportCPUIdle(float idleTime, int cpuid)
 void StatModule::printStats()
 {//use for final report at simulation completion
     
-    
 }
 
 void StatModule::printStatus(int ctime)
@@ -94,6 +96,7 @@ void StatModule::printStatus(int ctime)
     *fileOut<<std::right<<std::setw(20)<<"I/O Type:"<<std::setw(15)<<"CPU Type:"<<std::endl;
     for(int i =0; i<4; i++)
     {
+        //rowtemp is the number of seconds for the job
         int rowtemp=0;
         switch (i) {
             case 0:
@@ -111,7 +114,7 @@ void StatModule::printStatus(int ctime)
             default:
                 break;
         }
-        *fileOut<<std::setw(10)<<std::left<<i<<" sec"<<std::right;
+        *fileOut<<std::setw(10)<<std::left<<rowtemp<<" sec"<<std::right;
         for(int j =0; j<2; j++)
         {
             *fileOut<<std::setw(10+5*j)<<jobStatArry[j][i].numOfType;
@@ -140,7 +143,7 @@ void StatModule::printStatus(int ctime)
             default:
                 break;
         }
-        *fileOut<<std::setw(10)<<std::left<<i<<" sec"<<std::right;
+        *fileOut<<std::setw(10)<<std::left<<rowtemp<<" sec"<<std::right;
         for(int j =0; j<2; j++)
         {
             *fileOut<<std::setw(10+5*j)<<jobStatArry[j][i].totWaitQ/jobStatArry[j][i].numOfType;
@@ -168,7 +171,7 @@ void StatModule::printStatus(int ctime)
             default:
                 break;
         }
-        *fileOut<<std::setw(10)<<std::left<<i<<" sec"<<std::right;
+        *fileOut<<std::setw(10)<<std::left<<rowtemp<<" sec"<<std::right;
         for(int j =0; j<2; j++)
         {
             *fileOut<<std::setw(10+5*j)<<jobStatArry[j][i].numOfType;

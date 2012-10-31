@@ -15,7 +15,6 @@ class Job
         int cpuStartTime;         //timestamp of cpu queue entry
 		proType prot;             //type identifier
 	public:
-		//Job(double spawn, int idNew, int proTime, proType type);
         Job(double spawn, int idNew, int proTime, int type);
 		~Job();
 		proType getType();

@@ -38,5 +38,4 @@ class StatModule
         void printStatus(int);
 };
 
-
 #endif
