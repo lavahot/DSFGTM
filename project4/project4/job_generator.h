@@ -2,12 +2,10 @@
 /*
  Generates jobs for the simulation
 */
-
-#ifndef JOB_GENERATOR_H
-#define JOB_GENERATOR_H
 #include "discrete_generator.h"
 #include "job.h"
 #include "StatModule.h"
+
 
 class JobGenerator
 {
