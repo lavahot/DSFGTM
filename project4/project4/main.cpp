@@ -17,7 +17,7 @@ int main()
 {
  StatModule *stat_mod = new StatModule();
  SimEngine sim_eng(stat_mod, 
-	p_jobs_per_cycle_distribution,
+	double p_jobs_per_cycle_distribution,
 	double p_service_time_distribution,
 	double p_job_id_distribution ,
 	double total_time);

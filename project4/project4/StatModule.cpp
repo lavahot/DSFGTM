@@ -86,7 +86,7 @@ void StatModule::reportCPUIdle(float idleTime, int cpuid)
 
 void StatModule::printStats()
 {//use for final report at simulation completion
-    
+    *
 }
 
 void StatModule::printStatus(int ctime)
