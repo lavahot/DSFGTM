@@ -12,7 +12,7 @@
         //cpuStartTime=0;
 	//}
 
-    Job::Job(double spawn, int idNew, int proTime, int type)
+    Job::Job(int spawn, int idNew, int proTime, int type)
     {
         spawntime=spawn;
         ID=idNew;
@@ -68,7 +68,7 @@
         return cpuStartTime;
     }
 
-    double Job::getWait()
+    int Job::getWait()
     {
         return waitTime;
     }

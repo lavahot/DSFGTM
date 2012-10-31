@@ -85,7 +85,7 @@ void StatModule::reportJobEnd(Job *job)
     else
         *fileOut<<"CPU";
 
-    *fileOut<<std::setw(25)<<"Timestamp: "<<job->getCPU()+job->getWait()-job->getStartTime()<<std::endl;
+    *fileOut<<"Run Time: "<<job->getProcTime()<<std::setw(25)<<"Timestamp: "<<job->getCPU()+job->getWait()-job->getStartTime()<<std::endl;
     
 }
 
@@ -102,7 +102,7 @@ void StatModule::reportJobBegin(Job* job)
     else
         *fileOut<<"CPU";
     
-    *fileOut<<std::setw(25)<<"Timestamp: "<<job->getStartTime()<<std::endl;
+    *fileOut<<"Run Time: "<<job->getProcTime()<<std::setw(25)<<"Timestamp: "<<job->getStartTime()<<std::endl;
 }
 
 void StatModule::reportCPUIdle(float idleTime, int cpuid)
