@@ -77,12 +77,57 @@ void StatModule::reportJobEnd(Job *job)
     jobStatArry[typeTmp][procTimeTmp].totWaitQ+=job->getWait();
     jobStatArry[typeTmp][procTimeTmp].numOfType++;
     
+    
+    *fileOut<<std::left<<std::setw(15)<<"Job exiting!!!"<<std::setw(10)<<"ID#: "<<job->getID()<<"Type: ";
+    if (!typeTmp) {
+        *fileOut<<"I/O";
+    }
+    else
+        *fileOut<<"CPU";
+
+    *fileOut<<std::setw(25)<<"Timestamp: "<<job->getCPU()+job->getWait()-job->getStartTime()<<std::endl;
+    
+}
+
+void StatModule::reportJobBegin(Job* job)
+{
+    proType typeTmp;
+    int procTimeTmp;
+    typeTmp=job->getType();
+    
+    switch (job->getProcTime()) {
+        case 10:
+            procTimeTmp=0;
+            break;
+        case 20:
+            procTimeTmp=1;
+            break;
+        case 30:
+            procTimeTmp=2;
+            break;
+        case 60:
+            procTimeTmp=3;
+            break;
+        default:
+            break;
+    }
+    
+    
+    *fileOut<<std::left<<std::setw(15)<<"Job entering!!!"<<std::setw(10)<<"ID#: "<<job->getID()<<"Type: ";
+    if (!typeTmp) {
+        *fileOut<<"I/O";
+    }
+    else
+        *fileOut<<"CPU";
+    
+    *fileOut<<std::setw(25)<<"Timestamp: "<<job->getStartTime()<<std::endl;
 }
 
 void StatModule::reportCPUIdle(float idleTime, int cpuid)
 {
     CPUIdle[cpuid]+=idleTime;
 }
+
 
 void StatModule::printStats()
 {//use for final report at simulation completion

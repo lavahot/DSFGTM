@@ -42,12 +42,12 @@ int main()
  cout << "Number of jobs: "; cin >> num_jobs;
 
  SimEngine sim_eng(stat_mod, 
-	p_jobs_per_cycle_distribution,
+	double p_jobs_per_cycle_distribution,
 	double p_service_time_distribution,
 	p_job_id_distribution ,
 	num_jobs);
  sim_eng.Sim();
- stat_mod.printstats();
+ stat_mod->printStats();
     
  fout.close();
 }

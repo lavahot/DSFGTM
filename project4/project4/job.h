@@ -19,11 +19,13 @@ class Job
 		~Job();
 		proType getType();
         int getProcTime();
+        int getStartTime();
         double getWait();
         int getCPU();
 		void endWaitq(int qtime);
 		void endCPUq(int qtime);
 		bool process();
+        int getID();
   
 };
 

@@ -1,10 +1,10 @@
-#ifndef JOBGENERATOR_H
-#define JOBGENERATOR_H
+
 /*
  Generates jobs for the simulation
 */
 #include "discrete_generator.h"
 #include "job.h"
+#include "StatModule.h"
 
 
 class JobGenerator
@@ -16,10 +16,11 @@ class JobGenerator
  //distribution of id
  DiscreteGenerator* d_job_create_dist;
  //distribution of job creations( 0,1,2 ) per cycle
+    StatModule* stat;
     
     float d_service_times[4];
  public:
-    JobGenerator(double [], double [], double[]);
+    JobGenerator(double [], double [], double[], StatModule*);
   void init( double service_time_distribution_[4],
 	double* id_distribution_,
 	double*  );
