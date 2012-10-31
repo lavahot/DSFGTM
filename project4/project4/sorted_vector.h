@@ -41,7 +41,7 @@ class SortedVector
   // and a copy of that element is returned; otherwise,
   // original item is returned.
 
-  T &operator[](int index_) const;
+  T &operator[](int index_);
 
   void PutItem( T const& item );
   //void PutItem( T item );
@@ -274,7 +274,7 @@ template <typename T>
   
 
 template <typename T>
-  T &SortedVector<T>::operator[](int index_) const
+  T &SortedVector<T>::operator[](int index_)
   {
    return info[index_];
   }

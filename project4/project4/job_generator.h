@@ -7,13 +7,16 @@
 class JobGenerator
 {
  int d_job_number;
- DiscreteGenerator d_ser_dist;
+ DiscreteGenerator* d_ser_dist;
  //service time distribution
- DiscreteGenerator d_id_dist;
+ DiscreteGenerator* d_id_dist;
  //distribution of id
- DiscreteGenerator d_job_create_dist;
+ DiscreteGenerator* d_job_create_dist;
  //distribution of job creations( 0,1,2 ) per cycle
+    
+    float d_service_times[4];
  public:
+    JobGenerator(double [], double [], double[]);
   void init( double service_time_distribution_[4],
 	double* id_distribution_,
 	double*  );

@@ -7,7 +7,7 @@ on the Smirnov transform method.
 #include <random>
 
 
-  void DiscreteGenerator::init( int size_, double* probs)
+  DiscreteGenerator::DiscreteGenerator( int size_, double* probs)
   //Pre: SIZE_>0 and probabilities is size SIZE_.
   //Post: The generator is initialized
   {
@@ -20,7 +20,7 @@ on the Smirnov transform method.
    cdf[size-1]=1.0;
   }
   
-  int DiscreteGenerator::generate()
+  int DiscreteGenerator::generateDist()
   //Pre: Initialized. SIZE isn't too large.
   //Post: A random number of the distribution is generated
   {

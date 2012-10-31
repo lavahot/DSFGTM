@@ -15,9 +15,9 @@
 
 class SimEngine
 {
- Processor proc;
+ Processor* proc;
  Clock* clock;
- JobGenerator job_gen;
+ JobGenerator* job_gen;
  double total_time;
  public:
   SimEngine(StatModule* stat_mod_, 

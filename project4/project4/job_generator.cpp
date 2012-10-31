@@ -15,14 +15,19 @@
 
 #include "job_generator.h"
 #include "discrete_generator.h"
-  void JobGenerator::init( double service_time_distribution_[4],
+#include <cstdlib>
+  JobGenerator::JobGenerator( double service_time_distribution_[4],
 	double id_distribution_[2],
 	double job_create_dist_[3] ):
 	d_job_number(0)
   {
-   d_ser_dist(4,service_time_distribution_);
-   d_id_dist(2,id_distribution_);
-   d_job_create_dist(3,job_create_dist_);
+   d_ser_dist = new DiscreteGenerator(4,service_time_distribution_);
+   d_id_dist = new DiscreteGenerator(2,id_distribution_);
+   d_job_create_dist = new DiscreteGenerator(3,job_create_dist_);
+      d_service_times[0]=10;
+      d_service_times[1]=20;
+      d_service_times[2]=30;
+      d_service_times[3]=60;
   }
 
   Job* JobGenerator::gen_jobs_( int& number_jobs_)
@@ -32,19 +37,19 @@
   // Also returns number of jobs generated
   {
    //generate a random number of jobs {0,1,2}
-   int number_jobs_ = d_job_create_dist.generate();
+   number_jobs_ = d_job_create_dist->generateDist();
    
-   Job* job_ptr = NULL;
+      Job* job_ptr = NULL;
 
    //Fill out the Job*
    if(number_jobs_>0)
    {
     //Make a Job* to the first element
-    job_ptr = operator new(number_jobs_*sizeof(Job));
-    for(int i=0;i<number_jobs_:i++)
+    job_ptr = (Job*) operator new(number_jobs_*sizeof(Job));
+       for(int i=0;i<number_jobs_;i++)
     {
      d_job_number++;//The first job shall get number 1
-     job_ptr[i] = Job(d_job_number,d_id_dist.generate(), d_service_times[d_ser_dist.generate()] );
+        job_ptr[i] = Job(d_job_number,d_id_dist->generateDist(), d_service_times[d_ser_dist->generateDist()], d_id_dist->generateDist() );
     }
    }
 

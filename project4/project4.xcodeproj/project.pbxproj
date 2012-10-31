@@ -48,6 +48,7 @@
 		CE7F55A01640BAE300263EB1 /* sim_engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sim_engine.h; sourceTree = "<group>"; };
 		CE7F55A11640BAE300263EB1 /* sorted_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sorted_vector.h; sourceTree = "<group>"; };
 		CE7F55A21640BAE300263EB1 /* unsorted_list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unsorted_list.h; sourceTree = "<group>"; };
+		CE7F55A81640BFDC00263EB1 /* discrete_generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = discrete_generator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +81,7 @@
 		CE7B84DA163E1B3500802AFC /* project4 */ = {
 			isa = PBXGroup;
 			children = (
+				CE7F55A81640BFDC00263EB1 /* discrete_generator.h */,
 				CE7F559A1640BAE300263EB1 /* discrete_generator.cpp */,
 				CE7F559B1640BAE300263EB1 /* job_generator.cpp */,
 				CE7F559C1640BAE300263EB1 /* job_generator.h */,

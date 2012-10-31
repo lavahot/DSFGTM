@@ -1,7 +1,7 @@
 #ifndef JOB_H
 #define JOB_H
 
-enum proType {IO, CPU};
+enum proType {IO_T, CPU_T};
 
 class Job
 {
@@ -16,6 +16,7 @@ class Job
 		proType prot;             //type identifier
 	public:
 		Job(double spawn, int idNew, int proTime, proType type);
+        Job(double spawn, int idNew, int proTime, int type);
 		~Job();
 		proType getType();
         int getProcTime();
@@ -37,6 +38,23 @@ class Job
         cpuQueueTime=0;
         cpuStartTime=0;
 	}
+
+    Job::Job(double spawn, int idNew, int proTime, int type)
+    {
+        spawntime=spawn;
+        ID=idNew;
+        processTime=proTime;
+        processTimeRemaining=processTime;
+        if (type) {
+            prot=CPU_T;
+        }
+        else
+        {
+            prot=IO_T;
+        }
+        cpuQueueTime=0;
+        cpuStartTime=0;
+    }
 	Job::~Job()
 	{
 	}	

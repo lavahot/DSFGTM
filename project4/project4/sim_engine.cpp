@@ -30,8 +30,8 @@ class SimEngine
   {
    total_time = total_time_;
    clock=new Clock();
-   job_gen.init( p_service_time_distribution_,p_job_id_distribution_,p_jobs_per_cycle_distribution_);
-   proc.init(clock,stat_mod_);
+   job_gen = new JobGenerator( p_service_time_distribution_,p_job_id_distribution_,p_jobs_per_cycle_distribution_);
+   proc= new Processor(clock,stat_mod_);
   }
 
   void SimEngine::Sim()
@@ -47,14 +47,14 @@ class SimEngine
     clock->advTime();
 
     //get jobs
-    job_p = job_gen.gen_jobs_(num_jobs);
+    job_p = job_gen->gen_jobs_(num_jobs);
 
     //put jobs in processor
     for(int j=0; j<num_jobs; j++ )
-     proc.AddJob(job_p+j);
+     proc->AddJob(job_p+j);
 
     //run processor
-    proc.LoopCPUCycle();
+    proc->LoopCPUCycle();
    }
   }
 
@@ -62,6 +62,7 @@ class SimEngine
   //dealloc clock
   {
    delete clock;
+      delete proc;
   }
 
 //total time needed to be added to SimEngine

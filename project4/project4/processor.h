@@ -16,9 +16,11 @@ class Processor
  typedef std::pair<int,CPUP> thePair;
  SortedVector< thePair > d_cpus;
  QueList<Job*> d_waiting_list;
+    Clock* clock;
+    StatModule* stat_mod;
  public:
   Processor();
-  void init(Clock*,StatModule*);
+  Processor(Clock*,StatModule*);
   //Disperse clock to CPU
   void AddJob(Job* job_);
   //Adds a job to the waiting list
