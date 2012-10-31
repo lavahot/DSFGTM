@@ -22,24 +22,44 @@ int main()
  double p_serv_time_dist[4];
  double p_job_id[2];
  int num_jobs;
+ bool incorrect;
 
+do {
  cout << endl << "Enter the jobs per cycle distribution" << endl;
  cout << "Probability of 0 jobs: "; cin>> p_job_per_cycle[0];
  cout << "Probability of 1 jobs: "; cin>> p_job_per_cycle[1];
  cout << "Probability of 2 jobs: "; cin>> p_job_per_cycle[2];
 
+ incorrect==(p_job_per_cycle[0]<0.||p_job_per_cycle[1]<0.||
+	p_job_per_cycle[2]<0.||(p_job_per_cycle[0]+p_job_per_cycle[1]+p_job_per_cycle[2])>1.);
+}while(incorrect);
+
+do {
  cout << endl << "Enter the service time distribution" << endl;
  cout << "Probability of service time 10.0: "; cin>> p_serv_time_dist[0];
  cout << "Probability of service time 15.0: "; cin>> p_serv_time_dist[1];
  cout << "Probability of service time 20.0: "; cin>> p_serv_time_dist[2];
  cout << "Probability of service time 30.0: "; cin>> p_serv_time_dist[3];
 
+ incorrect==(p_serv_time_dist[0]<0.||p_serv_time_dist[1]<0.||
+	p_serv_time_dist[2]<0.|| p_serv_time_dist[3]<0.||
+	(p_serv_time_dist[0]+p_serv_time_dist[1]+p_serv_time_dist[2]+p_serv_time_dist[3])>1.);
+}while(incorrect);
+
+do {
  cout << endl << "Enter the id distribution" << endl;
  cout << "Probability of Proc jobs: "; cin>> p_job_id[0];
  cout << "Probability of IO jobs: "; cin>> p_job_id[1];
 
+ incorrect==(p_job_id[0]<0.||p_job_id[1]<0.||
+	(p_job_id[0]+p_job_id[1]>1.);
+}while(incorrect);
+
+do{
  cout << endl << "Enter the total number of jobs" << endl;
  cout << "Number of jobs: "; cin >> num_jobs;
+
+}while(num_jobs<=0);
 
  SimEngine sim_eng(stat_mod, 
 	p_job_per_cycle,
