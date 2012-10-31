@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		CE7B84DC163E1B3500802AFC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7B84DB163E1B3500802AFC /* main.cpp */; };
 		CE7B84DE163E1B3500802AFC /* project4.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE7B84DD163E1B3500802AFC /* project4.1 */; };
+		CE7F55A31640BAE300263EB1 /* discrete_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7F559A1640BAE300263EB1 /* discrete_generator.cpp */; };
+		CE7F55A41640BAE300263EB1 /* job_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7F559B1640BAE300263EB1 /* job_generator.cpp */; };
+		CE7F55A51640BAE300263EB1 /* processor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7F559D1640BAE300263EB1 /* processor.cpp */; };
+		CE7F55A61640BAE300263EB1 /* sim_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7F559F1640BAE300263EB1 /* sim_engine.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +39,15 @@
 		CE7B84E8163E1B7300802AFC /* que_list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = que_list.h; sourceTree = "<group>"; };
 		CE7B84E9163E1B7300802AFC /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		CE7B84EA163E1B7300802AFC /* node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
+		CE7F559A1640BAE300263EB1 /* discrete_generator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = discrete_generator.cpp; sourceTree = "<group>"; };
+		CE7F559B1640BAE300263EB1 /* job_generator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = job_generator.cpp; sourceTree = "<group>"; };
+		CE7F559C1640BAE300263EB1 /* job_generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = job_generator.h; sourceTree = "<group>"; };
+		CE7F559D1640BAE300263EB1 /* processor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = processor.cpp; sourceTree = "<group>"; };
+		CE7F559E1640BAE300263EB1 /* processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = processor.h; sourceTree = "<group>"; };
+		CE7F559F1640BAE300263EB1 /* sim_engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sim_engine.cpp; sourceTree = "<group>"; };
+		CE7F55A01640BAE300263EB1 /* sim_engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sim_engine.h; sourceTree = "<group>"; };
+		CE7F55A11640BAE300263EB1 /* sorted_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sorted_vector.h; sourceTree = "<group>"; };
+		CE7F55A21640BAE300263EB1 /* unsorted_list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unsorted_list.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +80,15 @@
 		CE7B84DA163E1B3500802AFC /* project4 */ = {
 			isa = PBXGroup;
 			children = (
+				CE7F559A1640BAE300263EB1 /* discrete_generator.cpp */,
+				CE7F559B1640BAE300263EB1 /* job_generator.cpp */,
+				CE7F559C1640BAE300263EB1 /* job_generator.h */,
+				CE7F559D1640BAE300263EB1 /* processor.cpp */,
+				CE7F559E1640BAE300263EB1 /* processor.h */,
+				CE7F559F1640BAE300263EB1 /* sim_engine.cpp */,
+				CE7F55A01640BAE300263EB1 /* sim_engine.h */,
+				CE7F55A11640BAE300263EB1 /* sorted_vector.h */,
+				CE7F55A21640BAE300263EB1 /* unsorted_list.h */,
 				CE7B84E4163E1B7300802AFC /* StatModule.h */,
 				CE7B84E5163E1B7300802AFC /* clock.h */,
 				CE7B84E6163E1B7300802AFC /* job.h */,
@@ -132,6 +154,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE7B84DC163E1B3500802AFC /* main.cpp in Sources */,
+				CE7F55A31640BAE300263EB1 /* discrete_generator.cpp in Sources */,
+				CE7F55A41640BAE300263EB1 /* job_generator.cpp in Sources */,
+				CE7F55A51640BAE300263EB1 /* processor.cpp in Sources */,
+				CE7F55A61640BAE300263EB1 /* sim_engine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +248,7 @@
 				CE7B84E3163E1B3500802AFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
