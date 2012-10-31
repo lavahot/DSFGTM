@@ -92,25 +92,7 @@ void StatModule::reportJobEnd(Job *job)
 void StatModule::reportJobBegin(Job* job)
 {
     proType typeTmp;
-    int procTimeTmp;
     typeTmp=job->getType();
-    
-    switch (job->getProcTime()) {
-        case 10:
-            procTimeTmp=0;
-            break;
-        case 20:
-            procTimeTmp=1;
-            break;
-        case 30:
-            procTimeTmp=2;
-            break;
-        case 60:
-            procTimeTmp=3;
-            break;
-        default:
-            break;
-    }
     
     
     *fileOut<<std::left<<std::setw(15)<<"Job entering!!!"<<std::setw(10)<<"ID#: "<<job->getID()<<"Type: ";
