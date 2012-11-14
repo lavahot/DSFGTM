@@ -55,11 +55,11 @@ class SimEngine
        i+=num_jobstmp;
     //run processor
     proc->LoopCPUCycle();
-
+       /*
     if( i%60==0 )
     {
         stat->printStatus(clock->getTime());
-    }
+    }*/
    }
   }
 

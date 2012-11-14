@@ -15,7 +15,7 @@ using namespace std;
 
 int main()
 {
- ofstream fout( "StatOutput.txt" );
+ ofstream fout( "StatOut.txt" );
 
  StatModule *stat_mod = new StatModule(fout);
  double p_job_per_cycle[3];

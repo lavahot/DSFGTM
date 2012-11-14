@@ -53,7 +53,7 @@ StatModule::~StatModule()
 void StatModule::reportJobEnd(Job *job)
 {
     proType typeTmp;
-    int procTimeTmp;
+    int procTimeTmp=0;
     typeTmp=job->getType();
     
     switch (job->getProcTime()) {
